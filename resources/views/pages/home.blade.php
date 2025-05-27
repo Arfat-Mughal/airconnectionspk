@@ -6,6 +6,7 @@
     <x-banner backgroundImage="{{ asset('assets/background.jpg') }}">
         <h1>Book your flight with lowest fares</h1>
         <p class="hero-text margin-bottom-20">Find exclusive deals, discounts and best value on your air tickets</p>
+    <livewire:counter />
     </x-banner>
 @endsection
 
