@@ -195,7 +195,7 @@
                 @endif
                 
                 <div class="d-grid mt-4 text-start">
-                    <button class="btn btn-primary btn-lg py-3" wire:click="submitFlightSearch">
+                    <button class="btn btn-primary py-2" wire:click="submitFlightSearch">
                         <i class="bi bi-search me-2"></i>Search Flights
                     </button>
                 </div>
@@ -299,19 +299,8 @@
                     </div>
                     
                     <div class="col-12 text-start">
-                        <div class="alert alert-info">
-                            <p class="fw-medium text-primary mb-2"><i class="bi bi-info-circle me-2"></i>Passenger Types</p>
-                            <ul class="mb-0">
-                                <li>Adult: Ages 12 and up</li>
-                                <li>Child: 2 to under 12 years</li>
-                                <li>Infant: Less than 2 years</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-12 text-start">
                         <div class="d-grid">
-                            <button class="btn btn-primary btn-lg py-3" wire:click="goToUmrahStep2">
+                            <button class="btn btn-primary py-2" wire:click="goToUmrahStep2">
                                 <i class="bi bi-arrow-right-circle me-2"></i>Select Night Stay
                             </button>
                         </div>
@@ -399,7 +388,7 @@
                     
                     <div class="col-12 text-start">
                         <div class="d-grid">
-                            <button class="btn btn-primary btn-lg py-3" wire:click="submitUmrahForm">
+                           <button class="btn btn-primary py-2" wire:click="submitUmrahForm">
                                 <i class="bi bi-arrow-right-circle me-2"></i>Get Price
                             </button>
                         </div>
@@ -466,7 +455,7 @@
                         
                         <div class="col-12 mt-4 text-start">
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg py-3">
+                                <button type="submit" class="btn btn-primary py-2">
                                     <i class="bi bi-send-fill me-2"></i>Submit Booking Request
                                 </button>
                             </div>
@@ -486,45 +475,89 @@
 
     @push('styles')
     <style>
-        .nav-tabs .nav-link.active {
-            background-color: #ffffff;
-            color: #0d6efd !important;
-            border-bottom: 3px solid #0d6efd;
-            font-weight: 600;
-        }
-        .nav-tabs .nav-link {
-            color: #495057;
-            border: none;
-            border-radius: 0;
-            padding: 12px 20px;
-        }
-        .nav-tabs .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        .nav-tabs.sub-tabs .nav-link.active {
-            background-color: #f8f9fa;
-            border-bottom: 2px solid #0d6efd;
-        }
-        .nav-tabs.sub-tabs .nav-link {
-            padding: 10px 15px;
-            font-size: 0.9rem;
-        }
-        .dropdown-menu {
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .form-control, .form-select {
-            border-radius: 0.375rem;
-        }
-        .input-group-text {
-            border-right: none;
-        }
-        .form-control.border-start-0, .form-select.border-start-0 {
-            border-left: none;
-        }
-        .btn-outline-primary:hover {
-            color: white;
-        }
-    </style>
+    /* Updated compact styles */
+    .container {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    .card {
+        margin-bottom: 1rem !important;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 8px 15px !important;
+        font-size: 0.9rem;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 1rem !important;
+        font-size: 1rem !important;
+    }
+    
+    .form-control, .form-select, .input-group-text {
+        padding: 0.375rem 0.75rem !important;
+        height: auto !important;
+    }
+    
+    .btn {
+        padding: 0.375rem 0.75rem !important;
+    }
+    
+    .dropdown-menu {
+        padding: 0.5rem !important;
+    }
+    
+    .alert {
+        padding: 0.75rem !important;
+    }
+    
+    .mb-4 {
+        margin-bottom: 1rem !important;
+    }
+    
+    .mb-3 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Keep existing styles but make them more compact */
+    .nav-tabs .nav-link.active {
+        background-color: #ffffff;
+        color: #0d6efd !important;
+        border-bottom: 2px solid #0d6efd;
+        font-weight: 600;
+    }
+    
+    .nav-tabs .nav-link {
+        color: #495057;
+        border: none;
+        border-radius: 0;
+    }
+    
+    .nav-tabs .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .dropdown-menu {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-control, .form-select {
+        border-radius: 0.375rem;
+    }
+    
+    .input-group-text {
+        border-right: none;
+    }
+    
+    .form-control.border-start-0, .form-select.border-start-0 {
+        border-left: none;
+    }
+    
+    .btn-outline-primary:hover {
+        color: white;
+    }
+</style>
     @endpush
 </div>
