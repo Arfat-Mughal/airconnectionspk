@@ -6,7 +6,7 @@
     <x-banner backgroundImage="{{ asset('assets/background.jpg') }}">
         <h1>Book your flight with lowest fares</h1>
         <p class="hero-text margin-bottom-20">Find exclusive deals, discounts and best value on your air tickets</p>
-    <livewire:counter />
+        <livewire:counter activeTab="flights" />
     </x-banner>
 @endsection
 
@@ -183,7 +183,7 @@
                         Experience a spiritually enriching journey with our exclusive Umrah packages. Enjoy visa processing,
                         flight bookings, and premium accommodation—all tailored to your needs.
                     </p>
-                    <a href="umrah.html" class="btn btn-primary mt-4 px-4 py-2">
+                    <a href="{{route('umrah')}}" class="btn btn-primary mt-4 px-4 py-2">
                         View Umrah Packages
                     </a>
                 </div>
@@ -193,107 +193,9 @@
 
         <!-- Visa Products Section -->
         <section class="mb-5">
-            <h2 class="text-center mb-5 fw-bold">Get a Tourist Visa</h2>
-            <div class="row g-4">
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/964b5857-cb80-4e0c-9f85-4b5b6f98791b/thumb.jpg"
-                                class="card-img-top" alt="Thailand Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">PKR <span class="fw-bold">17,000</span></p>
-                                <h5 class="card-title">Thailand Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/29a623f0-58f9-4f21-b0e1-1f3baf6405ac/thumb.jpg"
-                                class="card-img-top" alt="Indonesia Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">USD <span class="fw-bold">120</span></p>
-                                <h5 class="card-title">Indonesia Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/84247e6c-188b-4118-8380-e0be5114cd0d/thumb.jpg"
-                                class="card-img-top" alt="Azerbaijan Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">USD <span class="fw-bold">40</span></p>
-                                <h5 class="card-title">Azerbaijan Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/470adb52-2bae-41c4-a4e9-f52b818def53/thumb.jpg"
-                                class="card-img-top" alt="Kenya Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">PKR <span class="fw-bold">16,000</span></p>
-                                <h5 class="card-title">Kenya Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/ba54f88b-8798-4d1f-ab5c-c84ffcd37b58/thumb.jpg"
-                                class="card-img-top" alt="Malaysia Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">From PKR <span class="fw-bold">20,500</span></p>
-                                <h5 class="card-title">Malaysia Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/25f137cd-f09c-43b6-bbba-d250080a9e1c/thumb.jpg"
-                                class="card-img-top" alt="Singapore Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">PKR <span class="fw-bold">18,500</span></p>
-                                <h5 class="card-title">Singapore Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/d645fc77-7c25-45c9-ae1b-5bf042d03553/thumb.jpg"
-                                class="card-img-top" alt="Sri Lanka Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">USD <span class="fw-bold">70</span></p>
-                                <h5 class="card-title">Sri Lanka Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card product-card h-100 shadow-sm">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/pages/c7301a10-41fe-4078-9afc-7fc0767dce5f/thumb.jpg"
-                                class="card-img-top" alt="Dubai Visa">
-                            <div class="card-body">
-                                <p class="product-price mb-2">From AED <span class="fw-bold">650</span></p>
-                                <h5 class="card-title">Dubai Tourist Visa</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <x-visa-products/>
             <div class="text-center mt-4">
-                <a href="#" class="btn btn-outline-primary px-4">View All <i
+                <a href="{{route('visa')}}" class="btn btn-outline-primary px-4">View All <i
                         class="bi bi-arrow-right-circle ms-2"></i></a>
             </div>
         </section>
@@ -307,7 +209,7 @@
                         <h2 class="fw-bold mb-3">Authorized Visa Dropbox for Thailand and Indonesia</h2>
                         <p class="mb-4">We are authorized visa drop-box company for Royal Thai Embassy Islamabad and
                             Embassy of the Republic of Indonesia Islamabad. Travelers can officially submit their tourist
-                            visa applications through any of <a href="locations.html"
+                            visa applications through any of <a href="#"
                                 class="link-warning text-decoration-none fw-semibold">our branches</a></p>
                         <div class="d-flex justify-content-center gap-3">
                             <a href="#" class="btn btn-light text-primary fw-semibold">Thailand Visa</a>

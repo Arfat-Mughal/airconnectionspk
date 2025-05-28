@@ -12,7 +12,7 @@ use Livewire\Component;
 class Counter extends Component
 {
     // Tab configuration
-    public $activeTab = 'flights';
+    public $activeTab;
     public $tripType = 'one-way';
     public $flightClass = 'Economy';
     public $maxSegments = 5;
@@ -51,6 +51,16 @@ class Counter extends Component
     public $email;
     public $city;
     public $comments;
+
+
+    public function mount($activeTab = 'flights') 
+{
+    $this->activeTab = $activeTab;
+    
+    if ($this->activeTab === 'flights') {
+        $this->segments = [['from' => '', 'to' => '', 'departure' => '', 'return' => null]];
+    }
+}
     
     public function render()
     {
