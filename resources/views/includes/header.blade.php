@@ -59,7 +59,7 @@
                     <span class="navbar-text d-none d-lg-inline text-dark"><i class="bi bi-telephone"></i> 03111-184-185</span>
                 @endauth
 
-                <a href="tel:+9203111184185" class="btn btn-danger fw-bold" 
+                <a href="{{ route('contact') }}" class="btn btn-danger fw-bold" 
                     style="--bs-btn-hover-bg: #c82333; --bs-btn-hover-border-color: #c82333; --bs-btn-color: #fff;">
                     CONTACT US
                 </a>

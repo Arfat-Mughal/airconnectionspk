@@ -90,7 +90,7 @@
                         <a href="https://instagram.com/airconnections.pk" class="text-black me-3 hover-gold" target="_blank">
                             <i class="bi bi-instagram fs-4"></i>
                         </a>
-                        <a href="#" class="text-black hover-gold" target="_blank">
+                        <a href="https://wa.me/923111184185" class="text-black hover-gold" target="_blank">
                             <i class="bi bi-whatsapp fs-4"></i>
                         </a>
                     </div>
