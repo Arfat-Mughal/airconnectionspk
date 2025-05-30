@@ -1,103 +1,89 @@
 @extends('layouts.app')
 
-@section('title', 'Home Page')
+@section('title', 'Contact Us')
 
 @section('content')
-    <div class="container py-5">
-    <!-- Contact Header -->
+<div class="container py-5">
+    <!-- Page Heading -->
     <div class="text-center mb-5">
-        <h1 class="display-5 fw-bold mb-3">Contact Us</h1>
-        <p class="lead text-muted">Get in touch with our team of expert travel consultants to make your travel arrangements</p>
+        <h1 class="display-4 fw-bold text-primary">We’d Love to Hear From You</h1>
+        <p class="text-muted fs-5">Reach out anytime. Our travel experts are ready to assist with all your travel plans, bookings, and questions.</p>
     </div>
 
-    <!-- Phone Number -->
-    <div class="text-center mb-5">
+    <!-- Quick Call-to-Action -->
+    <div class="text-center mb-4">
         <a href="tel:+923111184185" class="text-decoration-none">
-            <p class="display-6 fw-bold text-primary">0311-1184-185</p>
+            <h2 class="fw-bold text-danger mb-1">Call Now: 0311-1184-185</h2>
         </a>
+        <p class="text-muted">Available 24/7 — Let’s make your next journey hassle-free.</p>
     </div>
 
-    <!-- Contact Cards -->
+    <!-- Contact Methods -->
     <div class="row g-4 mb-5">
-        <!-- WhatsApp -->
-        <div class="col-md-6 col-lg-3">
-            <a href="https://wa.me/923111184185" class="text-decoration-none">
-                <div class="card h-100 border-0 shadow-sm hover-shadow transition">
-                    <div class="card-body d-flex align-items-center p-4">
-                        <i class="bi bi-whatsapp text-success fs-2 me-4"></i>
-                        <div>
-                            <h5 class="fw-bold mb-1">Start WhatsApp Chat</h5>
-                            <p class="text-muted small mb-0">Get in touch with our customer support team</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+        @php
+            $methods = [
+                [
+                    'icon' => 'whatsapp',
+                    'color' => 'primary',
+                    'title' => 'Chat on WhatsApp',
+                    'desc' => 'Fast replies from our support team via WhatsApp.',
+                    'link' => 'https://wa.me/923111184185',
+                ],
+                [
+                    'icon' => 'telephone-fill',
+                    'color' => 'danger',
+                    'title' => 'Give Us a Call',
+                    'desc' => 'Speak directly with a friendly travel expert.',
+                    'link' => 'tel:+923111184185',
+                ],
+                [
+                    'icon' => 'chat-dots-fill',
+                    'color' => 'primary',
+                    'title' => 'Quick Message',
+                    'desc' => 'Submit your inquiry and receive a quick response.',
+                    'link' => '#',
+                ],
+                [
+                    'icon' => 'geo-alt-fill',
+                    'color' => 'danger',
+                    'title' => 'Visit Our Office',
+                    'desc' => 'Stop by one of our branches — we’re happy to assist in person.',
+                    'link' => '#',
+                ],
+            ];
+        @endphp
 
-        <!-- Call Us -->
-        <div class="col-md-6 col-lg-3">
-            <a href="tel:+923111184185" class="text-decoration-none">
-                <div class="card h-100 border-0 shadow-sm hover-shadow transition">
-                    <div class="card-body d-flex align-items-center p-4">
-                        <i class="bi bi-telephone text-primary fs-2 me-4"></i>
-                        <div>
-                            <h5 class="fw-bold mb-1">Call Us</h5>
-                            <p class="text-muted small mb-0">For inquiries or bookings, please call us</p>
+        @foreach ($methods as $method)
+            <div class="col-sm-6 col-lg-3">
+                <a href="{{ $method['link'] }}" class="text-decoration-none">
+                    <div class="card h-100 text-center border-0 shadow-sm transition hover-shadow">
+                        <div class="card-body py-5">
+                            <i class="bi bi-{{ $method['icon'] }} text-{{ $method['color'] }} fs-1 mb-3"></i>
+                            <h5 class="fw-bold text-dark">{{ $method['title'] }}</h5>
+                            <p class="text-muted small">{{ $method['desc'] }}</p>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Instant Response -->
-        <div class="col-md-6 col-lg-3">
-            <a href="#" class="text-decoration-none">
-                <div class="card h-100 border-0 shadow-sm hover-shadow transition">
-                    <div class="card-body d-flex align-items-center p-4">
-                        <i class="bi bi-chat-left-dots text-success fs-2 me-4"></i>
-                        <div>
-                            <h5 class="fw-bold mb-1">Get Instant Response</h5>
-                            <p class="text-muted small mb-0">Submit your requirements and we will get back to you</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Visit Us -->
-        <div class="col-md-6 col-lg-3">
-            <a href="#" class="text-decoration-none">
-                <div class="card h-100 border-0 shadow-sm hover-shadow transition">
-                    <div class="card-body d-flex align-items-center p-4">
-                        <i class="bi bi-geo-alt text-primary fs-2 me-4"></i>
-                        <div>
-                            <h5 class="fw-bold mb-1">Visit Us</h5>
-                            <p class="text-muted small mb-0">Visit our sales offices for your travel bookings</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+        @endforeach
     </div>
 
-    <!-- Head Office -->
-    <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-            <h2 class="h4 text-muted fw-light mb-4">Head Office</h2>
-            <h3 class="h5 fw-semibold mb-3">Air connections (Pvt) Ltd</h3>
-            <p class="mb-4">123 Travel Plaza, Main Boulevard, Lahore, Pakistan</p>
-            <a href="#" class="btn btn-outline-primary">View Our Branches</a>
-        </div>
+    <!-- Office Location -->
+    <div class="text-center">
+        <h4 class="text-muted">Head Office</h4>
+        <h5 class="fw-bold mt-2 text-danger">Air Connections (Pvt) Ltd</h5>
+        <p class="text-muted">123 Travel Plaza, Main Boulevard, Lahore, Pakistan</p>
     </div>
 </div>
 
-<!-- Optional: Add this CSS for hover effect -->
+<!-- Hover & Transition CSS -->
 <style>
     .hover-shadow:hover {
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        box-shadow: 0 .75rem 1.5rem rgba(0,0,0,.15)!important;
+        transform: translateY(-5px);
     }
     .transition {
-        transition: all 0.3s ease;
+        transition: all 0.3s ease-in-out;
     }
 </style>
 @endsection

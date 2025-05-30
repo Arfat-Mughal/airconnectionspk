@@ -3,9 +3,9 @@
 @section('title', 'Home Page')
 
 @section('banner')
-    <x-banner backgroundImage="{{ asset('assets/background.jpg') }}">
-        <h1>Book your flight with lowest fares</h1>
-        <p class="hero-text margin-bottom-20">Find exclusive deals, discounts and best value on your air tickets</p>
+    <x-banner backgroundImage="{{ asset('assets/2nd-banner.jpg') }}">
+        <h1 class="text-white fw-bold">Your Journey Begins <span class="text-danger">—</span> At the Best Price</h1>
+        <p class="hero-text text-light">Unlock premium flights at budget-friendly rates</p>
         <livewire:counter activeTab="flights" />
     </x-banner>
 @endsection
@@ -81,45 +81,6 @@
 @endsection
 
 @section('content')
-    <div class="container py-5">
-        <section class="mb-5">
-            <h2 class="text-center mb-4 fw-bold">Trending Now</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="promo-card h-100">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/home/promo1.jpg" alt="Travel Insurance"
-                                class="img-fluid rounded-3 w-100">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="promo-card h-100">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/home/promo2.jpg" alt="Umrah Packages"
-                                class="img-fluid rounded-3 w-100">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="promo-card h-100">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/home/promo3.jpg" alt="Thailand Visa"
-                                class="img-fluid rounded-3 w-100">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="promo-card h-100">
-                        <a href="#" class="text-decoration-none">
-                            <img src="https://cdn.travelsoft.net/site/101/home/promo4.jpg" alt="Umrah Hotels"
-                                class="img-fluid rounded-3 w-100">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Quick Services Section -->
         <section class="mb-5">
             <div class="row g-4">
@@ -183,7 +144,7 @@
                         Experience a spiritually enriching journey with our exclusive Umrah packages. Enjoy visa processing,
                         flight bookings, and premium accommodation—all tailored to your needs.
                     </p>
-                    <a href="{{route('umrah')}}" class="btn btn-primary mt-4 px-4 py-2">
+                    <a href="{{ route('umrah') }}" class="btn btn-primary mt-4 px-4 py-2">
                         View Umrah Packages
                     </a>
                 </div>
@@ -193,9 +154,9 @@
 
         <!-- Visa Products Section -->
         <section class="mb-5">
-            <x-visa-products/>
+            <x-visa-products />
             <div class="text-center mt-4">
-                <a href="{{route('visa')}}" class="btn btn-outline-primary px-4">View All <i
+                <a href="{{ route('visa') }}" class="btn btn-outline-primary px-4">View All <i
                         class="bi bi-arrow-right-circle ms-2"></i></a>
             </div>
         </section>
@@ -225,14 +186,17 @@
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <h3 class="fw-bold mb-3">The best travel booking experience</h3>
-                    <p class="mb-4">Discover a world of memorable travel with eBooking.pk, your one-stop solution for all
+                    <p class="mb-4">Discover a world of memorable travel with Air Connections.pk, your one-stop solution
+                        for all
                         your travel needs. Our platform offers a comprehensive range of services to ensure your journey is
                         smooth and hassle-free. From booking flights to securing tourist visas, we cater to every aspect of
-                        your travel planning. Traveling for leisure, business, or religious purposes, eBooking.pk is here to
+                        your travel planning. Traveling for leisure, business, or religious purposes, Air Connections.pk is
+                        here to
                         assist you every step of the way.</p>
 
                     <h3 class="fw-bold mb-3">Best deals on air tickets</h3>
-                    <p class="mb-4">At eBooking.pk, we provide access to a wide variety of flights, both domestic and
+                    <p class="mb-4">At Air Connections.pk, we provide access to a wide variety of flights, both domestic
+                        and
                         international. Partnering with major international airlines, including Emirates, Qatar Airways,
                         Etihad and Turkish Airlines, we offer the best deals to ensure you find the most affordable fares.
                     </p>
@@ -245,7 +209,8 @@
                         to focus on your spiritual experience.</p>
 
                     <h3 class="fw-bold mb-3">Get a travel insurance with exclusive discounts</h3>
-                    <p class="mb-4">Travel insurance is a crucial part of any trip, and at eBooking.pk, we offer a range
+                    <p class="mb-4">Travel insurance is a crucial part of any trip, and at Air Connections.pk, we offer a
+                        range
                         of insurance options to protect you from unexpected events. Our travel insurance plans cover medical
                         emergencies, trip cancellations, lost luggage, and more, providing peace of mind throughout your
                         travels.</p>
@@ -258,5 +223,4 @@
                 </div>
             </div>
         </section>
-    </div>
 @endsection
