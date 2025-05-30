@@ -1,48 +1,36 @@
-<nav class="navbar navbar-expand-lg shadow-sm" style="background: linear-gradient(90deg, #e3f2fd, #bbdefb);">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="{{ route('main') }}">
-            <img src="{{ asset('assets/logo.png') }}" alt="Logo" width="200" height="60" class="me-2">
+        <!-- Brand/Logo -->
+        <a class="navbar-brand" href="{{ route('main') }}">
+            <img src="{{ asset('assets/logo.png') }}" alt="Logo" width="180" height="50" class="d-inline-block align-top">
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas">
+            <i class="bi bi-list fs-1 text-danger"></i>
         </button>
 
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link fw-medium text-dark" href="{{ route('flights') }}">FLIGHTS</a>
-                    <span class="px-2 d-none d-lg-inline text-muted">|</span>
-                </li>
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link fw-medium text-dark" href="{{ route('visa') }}">VISAS</a>
-                    <span class="px-2 d-none d-lg-inline text-muted">|</span>
-                </li>
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link fw-medium text-dark" href="{{ route('umrah') }}">UMRAH</a>
-                    <span class="px-2 d-none d-lg-inline text-muted">|</span>
-                </li>
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link fw-medium text-dark" href="{{ route('e-services') }}">E-SERVICES</a>
-                    <span class="px-2 d-none d-lg-inline text-muted">|</span>
-                </li>
-                <li class="nav-item d-flex align-items-center">
-                    @if (Route::has('login'))
-                        <a href="{{ route('login') }}" class="nav-link fw-medium text-dark">MY ACCOUNT</a>
-                    @endif
-                </li>
+        <!-- Desktop Navigation -->
+        <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end">
+            <ul class="navbar-nav gap-4 align-items-center">
+                @foreach (['flights' => 'FLIGHTS', 'visa' => 'VISAS', 'umrah' => 'UMRAH'] as $route => $label)
+                    <li class="nav-item position-relative">
+                        <a class="nav-link fw-semibold text-dark px-2 py-1 hover-underline" href="{{ route($route) }}">
+                            {{ $label }}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
 
-            <div class="d-flex align-items-center gap-2">
+            <!-- Right Side Actions -->
+            <div class="d-flex align-items-center gap-3 ms-4">
                 @auth
                     <div class="dropdown">
-                        <button class="btn btn-outline-primary dropdown-toggle fw-medium" type="button" id="userDropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-circle me-1"></i> {{ Auth::user()->name }}
+                        <button class="btn btn-light rounded-pill px-3 dropdown-toggle d-flex align-items-center gap-2" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-5 text-danger"></i>
+                            <span class="d-none d-lg-inline">{{ Auth::user()->name }}</span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            {{-- <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a></li> --}}
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
                             @if (Auth::user()->isAdmin())
                                 <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin Dashboard</a></li>
                             @endif
@@ -50,32 +38,110 @@
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="dropdown-item">Logout</button>
+                                    <button type="submit" class="dropdown-item text-danger">Logout</button>
                                 </form>
                             </li>
                         </ul>
                     </div>
                 @else
-                    <span class="navbar-text d-none d-lg-inline text-dark"><i class="bi bi-telephone"></i> 03111-184-185</span>
+                    <a href="{{ route('login') }}" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-person-fill me-1"></i> Login
+                    </a>
                 @endauth
 
-                <a href="{{ route('contact') }}" class="btn btn-danger fw-bold" 
-                    style="--bs-btn-hover-bg: #c82333; --bs-btn-hover-border-color: #c82333; --bs-btn-color: #fff;">
+                <a href="{{ route('contact') }}" class="btn btn-danger rounded-pill px-4 fw-semibold shadow-sm">
                     CONTACT US
                 </a>
             </div>
         </div>
+    </div>
+</nav>
 
-        <div class="menu-mobile d-lg-none d-flex gap-2 mt-2">
-            <a class="menu-icon" href="tel:+9203111184185">
-                <img alt="Phone" src="{{ asset('assets/images/phone-circle.png') }}" width="30">
-            </a>
-            <a class="menu-icon" href="https://wa.me/9203111184185?text=I+have+a+question+related+to+your+website" target="_blank">
-                <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#25D366" 
-                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
+<!-- Mobile Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-semibold text-danger" id="navbarOffcanvasLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav gap-2">
+            @foreach (['flights' => 'FLIGHTS', 'visa' => 'VISAS', 'umrah' => 'UMRAH'] as $route => $label)
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold py-2 text-dark" href="{{ route($route) }}">{{ $label }}</a>
+                </li>
+            @endforeach
+
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold py-2 text-primary" href="{{ route('login') }}">Login</a>
+                </li>
+            @endguest
+        </ul>
+
+        <div class="mt-4">
+            <div class="d-flex gap-2 mb-3">
+                <a href="tel:+9203111184185" class="btn btn-outline-primary w-50 d-flex align-items-center justify-content-center gap-2">
+                    <i class="bi bi-telephone"></i> Call Us
+                </a>
+                <a href="https://wa.me/9203111184185" target="_blank" class="btn btn-outline-danger w-50 d-flex align-items-center justify-content-center gap-2">
+                    <i class="bi bi-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            <a href="{{ route('contact') }}" class="btn btn-danger w-100 fw-semibold rounded-pill">
+                CONTACT US
             </a>
         </div>
     </div>
-</nav>
+</div>
+
+<!-- Styles -->
+<style>
+    .hover-underline {
+        position: relative;
+        text-decoration: none;
+    }
+
+    .hover-underline::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0%;
+        height: 2px;
+        background-color: #dc3545; /* Red color */
+        transition: 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .hover-underline:hover::after {
+        width: 100%;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+    .btn-outline-primary {
+        color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+    .btn-outline-primary:hover {
+        color: white;
+        background-color: #0d6efd;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+
+    .text-primary {
+        color: #0d6efd !important;
+    }
+</style>

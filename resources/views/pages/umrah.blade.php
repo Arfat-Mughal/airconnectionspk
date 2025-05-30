@@ -3,10 +3,9 @@
 @section('title', 'Umrah Page')
 
 @section('banner')
-    <x-banner backgroundImage="{{ asset('assets/background.jpg') }}">
-        <h1>Umrah Packages from Lahore - 2024</h1>
-        <p class="hero-text margin-bottom-20">Get best-value Umrah packages in Lahore. Our packages include confirmed air ticket on direct flights, complete transport, hotels and quick Umrah visa processing.</p>
-        <livewire:counter activeTab="umrah" />
+    <x-banner backgroundImage="{{ asset('assets/2nd-banner.jpg') }}">
+       <h1 class="text-white fw-bold">Sacred Journeys <span class="text-danger">&mdash;</span> From Lahore</h1>
+<p class="hero-text text-light margin-bottom-20">Complete Umrah packages featuring direct flights, quality hotels, and hassle-free visa services</p> <livewire:counter activeTab="umrah" />
     </x-banner>
 @endsection
 
@@ -76,7 +75,7 @@
                 <p class="mb-4">We have direct hotel booking contracts with several reputed hotels in Makkah and Madinah. Therefore, you get instant hotel confirmation and are given your promised hotel room on arrival.</p>
 
                 <h3 class="section-title mb-3">Cheap Umrah Packages in Lahore</h3>
-                <p class="mb-4">Experience a spiritually enriching journey with our Umrah packages in Lahore. At eBooking.pk, we provide a comprehensive range of services to ensure your pilgrimage is smooth and worry-free. Our packages include essential services such as visa processing, flight bookings, accommodation arrangements, and transportation.</p>
+                <p class="mb-4">Experience a spiritually enriching journey with our Umrah packages in Lahore. At Air Connections.pk, we provide a comprehensive range of services to ensure your pilgrimage is smooth and worry-free. Our packages include essential services such as visa processing, flight bookings, accommodation arrangements, and transportation.</p>
             </div>
         </div>
     </div>
